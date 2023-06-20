@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float moveSpeed = 4f;
+    public float jumpForce = 6f; // ?? cao c?a nh?y
+    private Rigidbody2D rb;
+    private bool isJumping = false;
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+        // Nh?y
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 14, 0);
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            isJumping = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Ki?m tra xem nhân v?t ?ã ch?m ??t hay ch?a
+        if (collision.gameObject.name == "Terrain")
+        {
+            isJumping = false;
         }
     }
 }
