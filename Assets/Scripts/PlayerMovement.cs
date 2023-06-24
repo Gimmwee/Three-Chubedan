@@ -37,5 +37,12 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+
+        // Ki?m tra xem nhân v?t ?ã ch?m vào hình tròn ho?c b?y hay ch?a
+        if (collision.gameObject.tag == ("Traps"))
+        {
+            Destroy(gameObject); // Phá h?y nhân v?t
+            // Thêm các x? lý ho?c thông báo phá h?y nhân v?t ? ?ây
+        }
     }
 }
