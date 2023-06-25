@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 131414648175068064}
   - component: {fileID: 994081961745613853}
+<<<<<<< HEAD
   - component: {fileID: -4713985637507210945}
+=======
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
   m_Layer: 0
   m_Name: Rock3
   m_TagString: Untagged
@@ -26,7 +29,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5173098942579201030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: -2, z: 0}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71,8 +78,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< HEAD
   m_SortingLayerID: 2019694711
   m_SortingLayer: -3
+=======
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
   m_SortingOrder: 0
   m_Sprite: {fileID: -1784656370, guid: 198c5cf9dad20144995fd44cf395c218, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,6 +97,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!50 &-4713985637507210945
 Rigidbody2D:
   serializedVersion: 4
@@ -112,3 +125,5 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+=======
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62

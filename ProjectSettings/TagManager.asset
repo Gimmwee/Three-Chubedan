@@ -39,6 +39,7 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
+<<<<<<< HEAD
     uniqueID: 3796136021
     locked: 0
   - name: Cloud
@@ -49,7 +50,16 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 3417861607
+=======
+    uniqueID: 2470571507
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
+=======
+  - name: Terrain
+    uniqueID: 2036508167
+    locked: 0
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62

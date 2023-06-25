@@ -16,10 +16,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< HEAD
         // Di chuy?n qua ph?i
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
 
         // Làm nhân v?t ??ng th?ng
+=======
+        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         // Nh?y
@@ -37,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+<<<<<<< HEAD
 
         // Ki?m tra xem nhân v?t ?ã ch?m vào hình tròn ho?c b?y hay ch?a
         if (collision.gameObject.tag == ("Traps"))
@@ -44,5 +50,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject); // Phá h?y nhân v?t
             // Thêm các x? lý ho?c thông báo phá h?y nhân v?t ? ?ây
         }
+=======
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
     }
 }

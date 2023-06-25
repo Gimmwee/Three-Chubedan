@@ -10,10 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 4225180247733565309}
   - component: {fileID: 1894501766276369624}
+<<<<<<< HEAD
   - component: {fileID: -1309059674924553295}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Traps
+=======
+  m_Layer: 0
+  m_Name: Spikes
+  m_TagString: Untagged
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!61 &-1309059674924553295
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,3 +137,5 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+=======
+>>>>>>> 1b3eb9dbffaa2fc363b7ce46ced3e3cb0d12df62
