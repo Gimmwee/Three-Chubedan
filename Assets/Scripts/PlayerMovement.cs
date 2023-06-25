@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isJumping = false;
 
+    private enum MovementSate { idle, running, jumping, falling}
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
