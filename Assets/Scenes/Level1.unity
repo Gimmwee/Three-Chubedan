@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FollowSpeed: 2
+  yOffset: 0
   target: {fileID: 2099141139}
 --- !u!114 &322228667
 MonoBehaviour:
@@ -455,7 +456,7 @@ GameObject:
   - component: {fileID: 1187764673}
   m_Layer: 0
   m_Name: Traps
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,7 +488,7 @@ GameObject:
   - component: {fileID: 1809950837}
   m_Layer: 0
   m_Name: Saw1
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
