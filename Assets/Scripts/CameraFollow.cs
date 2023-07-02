@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public float FollowSpeed = 2f;
-    public float yOffset = 1f;
+    public float yOffset = 0.6f;
     public Transform target;
     // Start is called before the first frame update
     void Start()
