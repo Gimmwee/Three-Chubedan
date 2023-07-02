@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 4f;
-    public float jumpForce = 6f; // ?? cao c?a nh?y
+    public float jumpForce = 12f; // ?? cao c?a nh?y
     private Rigidbody2D rb;
     private bool isJumping = false;
 
-    private enum MovementSate { idle, running, jumping, falling}
+    private enum MovementSate { idle, running, jumping, falling }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,19 +31,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("coins"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Ki?m tra xem nhân v?t ?ã ch?m ??t hay ch?a
         if (collision.gameObject.name == "Terrain")
         {
             isJumping = false;
-        }     
+        }
+
+        // Ki?m tra va ch?m v?i traps
+        if (collision.gameObject.CompareTag("Traps"))
+        {
+            Destroy(gameObject); // Destroy nhân v?t
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Ki?m tra va ch?m v?i coins
+        if (other.gameObject.CompareTag("coins"))
+        {
+            Destroy(other.gameObject); // Destroy coins
+        }
     }
 }
