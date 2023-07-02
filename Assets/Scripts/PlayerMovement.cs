@@ -31,19 +31,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("coins"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Ki?m tra xem nhân v?t ?ã ch?m ??t hay ch?a
         if (collision.gameObject.name == "Terrain")
         {
             isJumping = false;
-        }
-
-        // Ki?m tra xem nhân v?t ?ã ch?m vào hình tròn ho?c b?y hay ch?a
-        if (collision.gameObject.tag == ("Traps"))
-        {
-            Destroy(gameObject); // Phá h?y nhân v?t
-            // Thêm các x? lý ho?c thông báo phá h?y nhân v?t ? ?ây
-        }
+        }     
     }
 }
