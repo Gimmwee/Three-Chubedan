@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField]
     public GameObject objectPrefab;
-    public int poolSize = 20;
+    public int poolSize = 1;
 
     private List<GameObject> objectPool = new List<GameObject>();
 
