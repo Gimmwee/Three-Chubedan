@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class SpawnDecor : MonoBehaviour
+public class SpawnDecor : MonoBehaviour, IPooledObject
 {
     [SerializeField]
     public GameObject decorPrefab;
@@ -13,6 +13,7 @@ public class SpawnDecor : MonoBehaviour
     public float maxY;
     public float timeBetweenSpawn;
     private float spawnTime;
+    public string poolTags;
     //void Update()
     //{
     //    if (Time.time > spawnTime)
@@ -30,49 +31,25 @@ public class SpawnDecor : MonoBehaviour
     //    Instantiate(decorPrefab, transform.position + new Vector3(x, y, 0), transform.rotation);
     //}
 
-
-    private void Update()
+    void Update()
     {
         if (Time.time > spawnTime)
         {
-            Spawn();
+            OnObjectSpawn();
             spawnTime = Time.time + timeBetweenSpawn;
         }
     }
 
-    private void Spawn()
+    public void OnObjectSpawn()
     {
-        GameObject decorObject = ObjectPool.instance.GetPoolObject();
+        float x = Random.Range(minX, maxX);
+        float y = Random.Range(minY, maxY);
 
-        if (decorObject != null)
-        {
-            float x = Random.Range(minX, maxX);
-            float y = Random.Range(minY, maxY);
 
-            decorObject.transform.position = transform.position + new Vector3(x, y, 0);
-            decorObject.transform.rotation = transform.rotation;
-            decorObject.SetActive(true);
+        GameObject spawnedObject = ObjectPool.Instance.SpawnFromPool(poolTags, transform.position + new Vector3(x, y, 0), transform.rotation);
 
-            StartCoroutine(DeactivateWhenOffScreen(decorObject));
-        }
     }
-
-    private IEnumerator DeactivateWhenOffScreen(GameObject decorObject)
-    {
-        // Wait for one frame to ensure the object is rendered before checking if it's off-screen
-        yield return null;
-
-        while (IsOffScreen(decorObject))
-        {
-            decorObject.SetActive(false);
-            yield return null;
-        }
-    }
-
-    private bool IsOffScreen(GameObject obj)
-    {
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(obj.transform.position);
-        return screenPos.x < 0 || screenPos.x > Screen.width || screenPos.y < 0 || screenPos.y > Screen.height;
-    }
+    
+    
 
 }
