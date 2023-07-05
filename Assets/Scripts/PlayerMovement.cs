@@ -4,12 +4,51 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //public float moveSpeed = 4f;
+    //public float jumpForce = 12f;
+    //private Rigidbody2D rb;
+    //private bool isJumping = false;
+    //public Animator aim;
+
+    //private void Start()
+    //{
+    //    rb = GetComponent<Rigidbody2D>();
+    //}
+
+    //private void Update()
+    //{
+    //    rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+
+    //    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+    //        isJumping = false;
+
+    //    }
+    //    aim.SetFloat("Move", moveSpeed);
+    //    aim.SetBool("IsJump", isJumping);
+    //}
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.name == "Terrain")
+    //    {
+    //        isJumping = true;
+    //    }
+
+    //    if (collision.gameObject.tag == ("Traps"))
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
     public float moveSpeed = 4f;
-    public float jumpForce = 6f; // ?? cao c?a nh?y
+    public float jumpForce = 12f;
     private Rigidbody2D rb;
     private bool isJumping = false;
-    public Animator aim;
 
+    private enum MovementSate { idle, running, jumping, falling }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,28 +63,34 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         // Nh?y
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            isJumping = false;
-
+            isJumping = true;
         }
-        aim.SetFloat("Move", moveSpeed);
-        aim.SetBool("IsJump", isJumping);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Ki?m tra xem nhân v?t ?ã ch?m ??t hay ch?a
         if (collision.gameObject.name == "Terrain")
         {
-            isJumping = true;
+            isJumping = false;
         }
 
-        // Ki?m tra xem nhân v?t ?ã ch?m vào hình tròn ho?c b?y hay ch?a
-        if (collision.gameObject.tag == ("Traps"))
+        // Ki?m tra va ch?m v?i traps
+        if (collision.gameObject.CompareTag("Traps"))
         {
-            Destroy(gameObject); // Phá h?y nhân v?t
-            // Thêm các x? lý ho?c thông báo phá h?y nhân v?t ? ?ây
+            Destroy(gameObject); // Destroy nhân v?t
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Ki?m tra va ch?m v?i coins
+        if (other.gameObject.CompareTag("coins"))
+        {
+            Destroy(other.gameObject); // Destroy coins
         }
     }
 }
