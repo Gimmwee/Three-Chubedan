@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isJumping = false;
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
     private enum MovementSate { idle, running, jumping, falling}
     private void Start()
     {
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         // Nh?y
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
+            jumpSoundEffect.Play();
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJumping = true;
         }
@@ -42,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         // Ki?m tra xem nhân v?t ?ã ch?m vào hình tròn ho?c b?y hay ch?a
         if (collision.gameObject.tag == ("Traps"))
         {
+            deathSoundEffect.Play();
             Destroy(gameObject); // Phá h?y nhân v?t
             // Thêm các x? lý ho?c thông báo phá h?y nhân v?t ? ?ây
         }
