@@ -488,7 +488,7 @@ MonoBehaviour:
     size: 5
   - tag: coins
     prefab: {fileID: 6292032157587983, guid: 07ed824955f5ea64abaec142bce57998, type: 3}
-    size: 100
+    size: 50
   - tag: Bush1
     prefab: {fileID: 1404351980690508118, guid: cc92fc30c0cc12843ace4dfba1b2a7e7, type: 3}
     size: 10
@@ -1802,6 +1802,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 598418049078019359, guid: fb6c13b25c2f96642895feb9b7745499, type: 3}
+      propertyPath: aim
+      value: 
+      objectReference: {fileID: 6855392932947202332, guid: fb6c13b25c2f96642895feb9b7745499, type: 3}
     - target: {fileID: 598418049078019359, guid: fb6c13b25c2f96642895feb9b7745499, type: 3}
       propertyPath: jumpForce
       value: 12
