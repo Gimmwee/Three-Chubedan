@@ -1810,8 +1810,16 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 598418049078019359, guid: fb6c13b25c2f96642895feb9b7745499, type: 3}
+      propertyPath: acceleration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2965218780562433064, guid: fb6c13b25c2f96642895feb9b7745499, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2965218780562433064, guid: fb6c13b25c2f96642895feb9b7745499, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3903582997181286613, guid: fb6c13b25c2f96642895feb9b7745499, type: 3}
