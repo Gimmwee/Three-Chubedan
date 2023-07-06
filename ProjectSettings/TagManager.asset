@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Traps
   - coins
+  - Tree1
+  - Tree2
+  - Bush1
+  - Bush2
+  - Rock1
+  - Rock2
+  - TreeStump
   layers:
   - Default
   - TransparentFX
