@@ -397,7 +397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 65823886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 732611790}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ReGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &65823886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,8 +688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f7a1f49bed5154ea872bea78f95b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowSpeed: 2
-  yOffset: 1
+  FollowSpeed: 10
+  yOffset: 0.2
   target: {fileID: 2099141139}
 --- !u!114 &322228667
 MonoBehaviour:
@@ -1390,6 +1402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1590293415}
+  coinsText: {fileID: 1259991795}
 --- !u!1 &786559852
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,6 +3321,10 @@ PrefabInstance:
     - target: {fileID: 2361419408761295725, guid: 4fff6ce1713fa894f9db4702718fde2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298724710504935126, guid: 4fff6ce1713fa894f9db4702718fde2a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 5526220176661946069, guid: 4fff6ce1713fa894f9db4702718fde2a, type: 3}
       propertyPath: player
