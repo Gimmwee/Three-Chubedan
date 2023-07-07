@@ -57,14 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(gameObject); // Destroy nhân v?t
         }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Ki?m tra va ch?m v?i coins
-        if (other.gameObject.CompareTag("coins"))
-        {
-            Destroy(other.gameObject); // Destroy coins
-        }
-    }
 }
