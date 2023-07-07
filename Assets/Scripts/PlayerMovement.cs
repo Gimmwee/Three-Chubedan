@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration = 0.1f;
     public float jumpForce = 12f;
     private Rigidbody2D rb;
-    private bool isJumping = false;
     private bool isGrounded = true;
     public Animator aim;
     private float currentMoveSpeed;
@@ -33,12 +32,11 @@ public class PlayerMovement : MonoBehaviour
         if (canJump && isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            isJumping = true;
             canJump = false;
         }
 
         aim.SetFloat("Move", currentMoveSpeed);
-        aim.SetBool("IsJumping", isJumping);
+        aim.SetBool("Ground", canJump);
 
         // T?ng t?c ?? di chuy?n
         if (currentMoveSpeed < maxMoveSpeed)
@@ -52,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         // Ki?m tra xem nhân v?t ?ã ch?m ??t hay ch?a
         if (collision.gameObject.CompareTag("Terrain"))
         {
-            isJumping = false;
             isGrounded = true;
             canJump = true;
         }
