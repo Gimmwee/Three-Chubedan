@@ -6,20 +6,26 @@ using UnityEngine;
 public class CoinsCollection : MonoBehaviour
 {
     private int coins = 0;
+    [SerializeField] TextMeshProUGUI coinsText;
 
-    [SerializeField]
-    TextMeshProUGUI coinsText;
+    public void CollectCoin()
+    {
+        coins++;
+        coinsText.text = "Coins: " + coins;
+    }
+
+    public void ResetCoins()
+    {
+        coins = 0;
+        coinsText.text = "Coins: " + coins;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Ki?m tra va ch?m v?i coins
         if (other.gameObject.CompareTag("coins"))
         {
             other.gameObject.SetActive(false);
-            coins++;
-            coinsText.text = "Coins: " + coins;
+            CollectCoin();
         }
     }
-
-
 }
