@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] GameObject gameOver;
+
     public float initialMoveSpeed = 4f;
     public float maxMoveSpeed = 10f;
     public float acceleration = 0.1f;
@@ -14,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public Animator aim;
     private float currentMoveSpeed;
     private bool canJump = true;
+
+    
+    
 
     private void Start()
     {
@@ -60,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         // Ki?m tra va ch?m v?i traps
         if (collision.gameObject.CompareTag("Traps"))
         {
+            gameOver.SetActive(true);
             Destroy(gameObject); // H?y nhân v?t
         }
     }
