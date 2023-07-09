@@ -63,10 +63,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Ki?m tra va ch?m v?i traps
-        if (collision.gameObject.CompareTag("Traps"))
-        {
-            gameOver.SetActive(true);
-            Destroy(gameObject); // H?y nhân v?t
-        }
+        //if (collision.gameObject.CompareTag("Traps"))
+        //{
+        //    gameOver.SetActive(true);
+        //    Destroy(gameObject); // H?y nhân v?t
+        //}
     }
 }
