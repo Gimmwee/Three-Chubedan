@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] GameObject gameOver;
-
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
     public float initialMoveSpeed = 4f;
     public float maxMoveSpeed = 10f;
     public float acceleration = 0.1f;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         // Nh?y
         if (canJump && isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
+            jumpSoundEffect.Play();
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJumping = true;
             canJump = false;
@@ -65,8 +67,10 @@ public class PlayerMovement : MonoBehaviour
         // Ki?m tra va ch?m v?i traps
         if (collision.gameObject.CompareTag("Traps"))
         {
+            deathSoundEffect.Play();
             gameOver.SetActive(true);
-            Destroy(gameObject); // H?y nhân v?t
+            gameObject.SetActive(false);
+           // Destroy(gameObject); // H?y nhân v?t
         }
     }
 }
