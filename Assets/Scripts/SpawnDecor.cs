@@ -29,6 +29,12 @@ public class SpawnDecor : MonoBehaviour, IObjectPool
 
 
         GameObject spawnedObject = ObjectPool.Instance.SpawnFromPool(poolTag, transform.position + new Vector3(x, y, 0), transform.rotation);
+        StartCoroutine(DeactivateObjectAfterDelay(spawnedObject, 6f));
+    }
 
+    private IEnumerator DeactivateObjectAfterDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(false);
     }
 }
