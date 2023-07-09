@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CoinsCollection : MonoBehaviour
 {
-    private int coins = 0;
+    public static int coins = 0;
     [SerializeField] TextMeshProUGUI coinsText;
 
     public void CollectCoin()

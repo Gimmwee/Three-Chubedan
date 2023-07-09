@@ -31,11 +31,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        if (CoinsCollection.coins > PlayerPrefs.GetInt("hightscore"))
+        {
+            PlayerPrefs.SetInt("hightscore", CoinsCollection.coins);
+        }
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
     }
 
     public void ReGame()
