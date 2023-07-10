@@ -17,9 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private float currentMoveSpeed;
     private bool canJump = true;
 
-    
-    
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,12 +31,15 @@ public class PlayerMovement : MonoBehaviour
         // Làm nhân v?t ??ng th?ng
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-        // Nh?y
-        if (canJump && isGrounded && Input.GetKeyDown(KeyCode.Space))
+        // Nh?y khi ch?m vào màn hình
+        if (canJump && isGrounded)
         {
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            isJumping = true;
-            canJump = false;
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                isJumping = true;
+                canJump = false;
+            }
         }
 
         aim.SetFloat("Move", currentMoveSpeed);
@@ -63,10 +63,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Ki?m tra va ch?m v?i traps
-        //if (collision.gameObject.CompareTag("Traps"))
-        //{
-        //    gameOver.SetActive(true);
-        //    Destroy(gameObject); // H?y nhân v?t
-        //}
+        if (collision.gameObject.CompareTag("Traps"))
+        {
+            gameOver.SetActive(true);
+            Destroy(gameObject); // H?y nhân v?t
+        }
     }
 }
