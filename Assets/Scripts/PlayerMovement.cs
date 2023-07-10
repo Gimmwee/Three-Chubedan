@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject gameOver;
 
     public float initialMoveSpeed = 4f;
-    public float maxMoveSpeed = 10f;
-    public float acceleration = 0.1f;
+    public float maxMoveSpeed = 30f;
+    public float acceleration = 0.2f;
     public float jumpForce = 12f;
     private Rigidbody2D rb;
     private bool isJumping = false;
