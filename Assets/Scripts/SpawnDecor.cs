@@ -29,7 +29,7 @@ public class SpawnDecor : MonoBehaviour, IObjectPool
 
 
         GameObject spawnedObject = ObjectPool.Instance.SpawnFromPool(poolTag, transform.position + new Vector3(x, y, 0), transform.rotation);
-        StartCoroutine(DeactivateObjectAfterDelay(spawnedObject, 6f));
+        StartCoroutine(DeactivateObjectAfterDelay(spawnedObject, 10f));
     }
 
     private IEnumerator DeactivateObjectAfterDelay(GameObject obj, float delay)
