@@ -11,9 +11,11 @@ public class PauseMenu : MonoBehaviour
     private Vector3 initialPlayerPosition;
 
     public TextMeshProUGUI coinsText; // S?a t? private thành public
+    SavePlayerPos playerPosData;
 
-    private void Start()
+    public void Start()
     {
+        playerPosData = FindObjectOfType<SavePlayerPos>();
         initialPlayerPosition = transform.position;
     }
 
@@ -31,11 +33,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        playerPosData.PlayerPosSave();
+        SceneManager.LoadScene("Start Screen");
+
     }
 
     public void ReGame()

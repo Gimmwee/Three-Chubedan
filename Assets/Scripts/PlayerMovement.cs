@@ -17,6 +17,13 @@ public class PlayerMovement : MonoBehaviour
     private float currentMoveSpeed;
     private bool canJump = true;
 
+    SavePlayerPos playerPosData;
+    private void Awake()
+    {
+        playerPosData = FindObjectOfType<SavePlayerPos>();
+        playerPosData.PlayerPosLoad();
+
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
