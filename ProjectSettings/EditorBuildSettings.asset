@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Pixel Adventure 1/Scenes/Demo.unity
+    guid: 3ba0c8bb455f85949898018b7c229fa1
+  - enabled: 1
     path: Assets/Scenes/Start Screen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
