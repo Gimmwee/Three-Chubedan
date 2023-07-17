@@ -4463,17 +4463,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1259991795}
     - target: {fileID: 5768772469647827845, guid: 043262bafea5169469b3ea1ec62d94c5, type: 3}
-<<<<<<< HEAD:Assets/Scenes/GameScenes.unity
-      propertyPath: m_Size.y
-      value: 0.9939048
-      objectReference: {fileID: 0}
-    - target: {fileID: 5768772469647827845, guid: 043262bafea5169469b3ea1ec62d94c5, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.017511368
-      objectReference: {fileID: 0}
-    - target: {fileID: 5768772469647827845, guid: 043262bafea5169469b3ea1ec62d94c5, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0029724836
 =======
       propertyPath: m_Size.x
       value: 0.9515827
