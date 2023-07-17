@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator aim;
     private float currentMoveSpeed;
     private bool canJump = true;
-
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
+                jumpSoundEffect.Play();
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
                 canJump = false;
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         // Ki?m tra va ch?m v?i traps
         if (collision.gameObject.CompareTag("Traps"))
         {
+            deathSoundEffect.Play();
             gameOver.SetActive(true);
             Destroy(gameObject); // H?y nhân v?t
         }

@@ -7,7 +7,7 @@ public class CoinsCollection : MonoBehaviour
 {
     private int coins = 0;
     [SerializeField] TextMeshProUGUI coinsText;
-
+    [SerializeField] private AudioSource collectCoinSoundEffect;
     public void CollectCoin()
     {
         coins++;
@@ -24,6 +24,7 @@ public class CoinsCollection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("coins"))
         {
+            collectCoinSoundEffect.Play();
             other.gameObject.SetActive(false);
             CollectCoin();
         }
