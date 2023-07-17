@@ -24,6 +24,7 @@ public class CoinsCollection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("coins"))
         {
+            AudioManager.Instance.PlaySFX("CollectCoins");
             other.gameObject.SetActive(false);
             CollectCoin();
         }
