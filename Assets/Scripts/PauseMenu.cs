@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReGame()
     {
+        AudioManager.Instance.musicSource.Play();
         // ??t l?i v? trí c?a nhân v?t v? v? trí ban ??u
         transform.position = initialPlayerPosition;
 

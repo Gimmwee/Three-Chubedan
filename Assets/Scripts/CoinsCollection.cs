@@ -12,6 +12,10 @@ public class CoinsCollection : MonoBehaviour
     {
         coins++;
         coinsText.text = "Coins: " + coins;
+        if (coins > PlayerPrefs.GetInt("hightScore"))
+        {
+            PlayerPrefs.SetInt("hightScore", coins);
+        }
     }
 
     public void ResetCoins()
