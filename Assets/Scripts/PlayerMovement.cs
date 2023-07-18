@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX("Death");
             AudioManager.Instance.musicSource.Stop();
-           gameOver.SetActive(true);
+            gameOver.SetActive(true);
             Destroy(gameObject); // H?y nhân v?t
         }
     }
