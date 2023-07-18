@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
+                AudioManager.Instance.PlaySFX("Jump");
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
                 canJump = false;
@@ -65,7 +66,9 @@ public class PlayerMovement : MonoBehaviour
         // Ki?m tra va ch?m v?i traps
         if (collision.gameObject.CompareTag("Traps"))
         {
-            gameOver.SetActive(true);
+            AudioManager.Instance.PlaySFX("Death");
+            AudioManager.Instance.musicSource.Stop();
+           gameOver.SetActive(true);
             Destroy(gameObject); // H?y nhân v?t
         }
     }
