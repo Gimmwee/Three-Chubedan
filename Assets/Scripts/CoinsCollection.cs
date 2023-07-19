@@ -12,6 +12,10 @@ public class CoinsCollection : MonoBehaviour
     {
         coins++;
         coinsText.text = "Coins: " + coins;
+        if (coins > PlayerPrefs.GetInt("hightScore"))
+        {
+            PlayerPrefs.SetInt("hightScore", coins);
+        }
     }
 
     public void ResetCoins()
@@ -24,6 +28,7 @@ public class CoinsCollection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("coins"))
         {
+            AudioManager.Instance.PlaySFX("CollectCoin");
             other.gameObject.SetActive(false);
             CollectCoin();
         }
