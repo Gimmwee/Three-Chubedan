@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeHead : PlayerMovement
+public class SpikeHead : MonoBehaviour
 {
     [Header("SpikeHead Atributes")]
     [SerializeField] private float speed;
