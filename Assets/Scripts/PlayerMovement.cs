@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] GameObject gameOver;
-
+    [SerializeField] public TextMeshProUGUI coinsText;
+    public int coins = 0;
     public float initialMoveSpeed = 4f;
     public float maxMoveSpeed = 30f;
     public float acceleration = 0.2f;
@@ -16,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator aim;
     private float currentMoveSpeed;
     private bool canJump = true;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -72,4 +75,50 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject); // H?y nhân v?t
         }
     }
+
+    public void CollectCoin()
+    {
+        coins++;
+        coinsText.text = "Coins: " + coins;
+        if (coins > PlayerPrefs.GetInt("hightScore"))
+        {
+            PlayerPrefs.SetInt("hightScore", coins);
+        }
+    }
+
+    public void ResetCoins()
+    {
+        coins = 0;
+        coinsText.text = "Coins: " + coins;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("coins"))
+        {
+            AudioManager.Instance.PlaySFX("CollectCoin");
+            other.gameObject.SetActive(false);
+            CollectCoin();
+        }
+    }
+
+    //public void SavePlayer()
+    //{
+    //    SaveSystem.SavePlayer(this);
+    //}
+
+    //public void LoadPlayer()
+    //{
+    //    PlayerData data = SaveSystem.LoadPlayer();
+
+    //    coins = data.score;
+
+    //    coinsText.text = "Coins: " + coins;
+
+    //    Vector3 position;
+    //    position.x = data.position[0];
+    //    position.y = data.position[1];
+    //    position.z = data.position[2];
+    //    transform.position = position;
+    //}
 }
