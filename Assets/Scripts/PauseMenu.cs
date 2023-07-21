@@ -29,6 +29,12 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void GoToCharacterSelectorScene()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(2);
+    }
+
     public void Quit()
     {
         #if UNITY_EDITOR

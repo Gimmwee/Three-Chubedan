@@ -23,6 +23,8 @@ public class CharacterManage : MonoBehaviour
         {
             Load();
         }
+        selectedOption = PlayerPrefs.GetInt("CurrentPlayer");
+
         UpdateCharacter(selectedOption);
     }
     public void NextOption()

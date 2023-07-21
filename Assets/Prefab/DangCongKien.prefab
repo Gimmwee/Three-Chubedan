@@ -14,11 +14,9 @@ GameObject:
   - component: {fileID: 711161220393176575}
   - component: {fileID: 5768772469647827845}
   - component: {fileID: 3737859845120546203}
-  - component: {fileID: 5222045802538360827}
-  - component: {fileID: 8746314784017547377}
   m_Layer: 0
-  m_Name: Player 02
-  m_TagString: Untagged
+  m_Name: DangCongKien
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 7505608108123925912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7458041901582993788
 SpriteRenderer:
@@ -170,18 +168,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01751137, y: -0.7004669}
+  m_Offset: {x: 0.035971582, y: -0.13231409}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.53269, y: 1.857676}
+  m_Size: {x: 1.3391596, y: 1.6927476}
   m_EdgeRadius: 0
 --- !u!114 &3737859845120546203
 MonoBehaviour:
@@ -201,30 +199,6 @@ MonoBehaviour:
   acceleration: 0.2
   jumpForce: 12
   aim: {fileID: 6039274765789684960}
---- !u!114 &5222045802538360827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505608108123925912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac58e370ee7c65498fc24e0235b5607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinsText: {fileID: 0}
---- !u!114 &8746314784017547377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505608108123925912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cb034edb8642541a214d9c841cda58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  coinsText: {fileID: 0}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] GameObject gameOver;
+
+    public static PlayerMovement Instance;
+
 
     public float initialMoveSpeed = 4f;
     public float maxMoveSpeed = 30f;
@@ -17,11 +19,37 @@ public class PlayerMovement : MonoBehaviour
     private float currentMoveSpeed;
     private bool canJump = true;
 
+    private Collider2D coll;
+
+    [SerializeField] private LayerMask groundLayers;
+
+
+  
+    private void Awake()
+    {
+        coll = GetComponent<Collider2D>();
+        if (Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(this);
+        }
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentMoveSpeed = initialMoveSpeed;
     }
+
+
+    public enum PlayerState
+    {
+        Run = 0,
+        Jump = 1,
+    }
+
+    private PlayerState currentState = PlayerState.Run;
 
     private void Update()
     {
@@ -31,26 +59,38 @@ public class PlayerMovement : MonoBehaviour
         // Làm nhân v?t ??ng th?ng
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
+        
+
         // Nh?y khi ch?m vào màn hình
-        if (canJump && isGrounded)
+        if (canJump && IsOnGround())
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
+                Debug.Log(currentState.ToString());
                 AudioManager.Instance.PlaySFX("Jump");
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
+                currentState = PlayerState.Jump;
                 canJump = false;
             }
         }
 
-        aim.SetFloat("Move", currentMoveSpeed);
-        aim.SetBool("IsJumping", isJumping);
+      
+
+        aim.SetInteger("Move", (int) currentState);
 
         // T?ng t?c ?? di chuy?n
         if (currentMoveSpeed < maxMoveSpeed)
         {
             currentMoveSpeed += acceleration * Time.deltaTime;
         }
+
+
+    }
+
+    public bool IsOnGround()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 1f, groundLayers);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
         // Ki?m tra xem nhân v?t ?ã ch?m ??t hay ch?a
         if (collision.gameObject.CompareTag("Terrain"))
         {
+            currentState = PlayerState.Run;
+     
             isJumping = false;
             isGrounded = true;
             canJump = true;
@@ -68,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX("Death");
             AudioManager.Instance.musicSource.Stop();
-            gameOver.SetActive(true);
+             GameOverMenu.Instance.ShowPopup();
             Destroy(gameObject); // H?y nhân v?t
         }
     }

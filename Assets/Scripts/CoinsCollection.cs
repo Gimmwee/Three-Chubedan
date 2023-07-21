@@ -5,17 +5,34 @@ using UnityEngine;
 
 public class CoinsCollection : MonoBehaviour
 {
+    public static CoinsCollection Instance;
+
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     private int coins = 0;
     [SerializeField] TextMeshProUGUI coinsText;
 
     public void CollectCoin()
     {
+        AudioManager.Instance.PlaySFX("CollectCoin");
         coins++;
         coinsText.text = "Coins: " + coins;
         if (coins > PlayerPrefs.GetInt("hightScore"))
         {
             PlayerPrefs.SetInt("hightScore", coins);
         }
+       
     }
 
     public void ResetCoins()
@@ -24,13 +41,6 @@ public class CoinsCollection : MonoBehaviour
         coinsText.text = "Coins: " + coins;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("coins"))
-        {
-            AudioManager.Instance.PlaySFX("CollectCoin");
-            other.gameObject.SetActive(false);
-            CollectCoin();
-        }
-    }
+  
+
 }
