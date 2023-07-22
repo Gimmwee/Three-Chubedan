@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     public static PlayerMovement Instance;
-
-
     public float initialMoveSpeed = 4f;
     public float maxMoveSpeed = 30f;
     public float acceleration = 0.2f;
@@ -16,15 +13,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false;
     private bool isGrounded = true;
     public Animator aim;
-    private float currentMoveSpeed;
+    public float currentMoveSpeed;
     private bool canJump = true;
 
     private Collider2D coll;
 
     [SerializeField] private LayerMask groundLayers;
-
-
-  
     private void Awake()
     {
         coll = GetComponent<Collider2D>();
@@ -42,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         currentMoveSpeed = initialMoveSpeed;
     }
 
-
     public enum PlayerState
     {
         Run = 0,
@@ -59,8 +52,6 @@ public class PlayerMovement : MonoBehaviour
         // Làm nhân v?t ??ng th?ng
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-        
-
         // Nh?y khi ch?m vào màn hình
         if (canJump && IsOnGround())
         {
@@ -75,8 +66,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-      
-
         aim.SetInteger("Move", (int) currentState);
 
         // T?ng t?c ?? di chuy?n
@@ -84,10 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             currentMoveSpeed += acceleration * Time.deltaTime;
         }
-
-
     }
-
     public bool IsOnGround()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 1f, groundLayers);
@@ -110,8 +96,19 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX("Death");
             AudioManager.Instance.musicSource.Stop();
-             GameOverMenu.Instance.ShowPopup();
+            GameOverMenu.Instance.ShowPopup();
             Destroy(gameObject); // H?y nhân v?t
         }
+    }
+    public void ApplySlowDown(float slowDownFactor)
+    {
+        // Áp d?ng hi?u ?ng làm ch?m t?c ??
+        initialMoveSpeed *= slowDownFactor;
+    }
+
+    public void ResetSpeed()
+    {
+        // H?i ph?c t?c ?? ban ??u
+        currentMoveSpeed = initialMoveSpeed;
     }
 }

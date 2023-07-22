@@ -6,9 +6,6 @@ using UnityEngine;
 public class CoinsCollection : MonoBehaviour
 {
     public static CoinsCollection Instance;
-
-
-
     private void Awake()
     {
         if (Instance == null)
