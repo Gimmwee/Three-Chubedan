@@ -6,6 +6,7 @@ using UnityEngine;
 public class CoinsCollection : MonoBehaviour
 {
     public static CoinsCollection Instance;
+
     private void Awake()
     {
         if (Instance == null)
@@ -14,7 +15,7 @@ public class CoinsCollection : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject); // Destroy duplicate instance
         }
     }
     private int coins = 0;
@@ -38,6 +39,15 @@ public class CoinsCollection : MonoBehaviour
         coinsText.text = "Coins: " + coins;
     }
 
-  
+    public void SetCoins(int value)
+    {
+        coins = value;
+        coinsText.text = "Coins: " + coins;
+    }
+
+    public int GetCoins()
+    {
+        return coins;
+    }
 
 }

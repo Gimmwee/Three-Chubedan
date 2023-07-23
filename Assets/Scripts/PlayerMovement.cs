@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,12 +24,15 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         coll = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
+
         if (Instance == null)
         {
             Instance = this;
-        } else
+        }
+        else
         {
-            Destroy(this);
+            Destroy(this.gameObject); // Destroy duplicate instance
         }
     }
     private void Start()
@@ -113,4 +117,26 @@ public class PlayerMovement : MonoBehaviour
         // H?i ph?c t?c ?? ban ??u
         currentMoveSpeed = initialMoveSpeed;
     }
+    private void OnApplicationQuit()
+    {
+        // L?u thông tin ?i?m và v? trí ng??i ch?i khi thoát game
+        PlayerPrefs.SetFloat("PlayerPositionX", transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPositionY", transform.position.y);
+        PlayerPrefs.SetInt("PlayerCoins", CoinsCollection.Instance.GetCoins());
+        PlayerPrefs.Save();
+    }
+
+    public void LoadGame()
+    {
+        int savedCoins = PlayerPrefs.GetInt("PlayerCoins", 0); // Load the saved coins, default to 0 if not present
+        float savedPlayerPosX = PlayerPrefs.GetFloat("PlayerPositionX", 0f); // Load the saved player position x, default to 0 if not present
+        float savedPlayerPosY = PlayerPrefs.GetFloat("PlayerPositionY", 0f); // Load the saved player position y, default to 0 if not present
+
+        // Set the saved coins and player position
+        CoinsCollection.Instance.SetCoins(savedCoins);
+        PlayerMovement.Instance.transform.position = new Vector3(savedPlayerPosX, savedPlayerPosY, 0f);
+
+        //SceneManager.LoadScene("GameScenes", LoadSceneMode.Single);
+    }
+
 }
