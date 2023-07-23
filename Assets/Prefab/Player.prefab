@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1.6, y: 1.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2032823462757338935
@@ -195,12 +195,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e3e68d16d50c941ae0de74543c3254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
   initialMoveSpeed: 4
   maxMoveSpeed: 30
   acceleration: 0.1
   jumpForce: 12
   aim: {fileID: 0}
+  currentMoveSpeed: 0
+  Blood: {fileID: 1669954688736633636, guid: 3b4bc4b6e7d5ee9468e31cfab138c379, type: 3}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &4625684398233374927
 MonoBehaviour:
   m_ObjectHideFlags: 0

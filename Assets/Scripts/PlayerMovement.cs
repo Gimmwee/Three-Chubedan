@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator aim;
     public float currentMoveSpeed;
     private bool canJump = true;
+    public GameObject Blood;
 
     private Collider2D coll;
 
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.Instance.musicSource.Stop();
             GameOverMenu.Instance.ShowPopup();
             Destroy(gameObject); // H?y nhân v?t
+            Instantiate(Blood, transform.position, Quaternion.identity);
         }
     }
     public void ApplySlowDown(float slowDownFactor)

@@ -193,12 +193,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e3e68d16d50c941ae0de74543c3254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
   initialMoveSpeed: 4
   maxMoveSpeed: 30
   acceleration: 0.2
   jumpForce: 12
   aim: {fileID: 6039274765789684960}
+  currentMoveSpeed: 0
+  Blood: {fileID: 1669954688736633636, guid: 3b4bc4b6e7d5ee9468e31cfab138c379, type: 3}
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
