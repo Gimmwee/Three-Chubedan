@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
+
     public float initialMoveSpeed = 4f;
     public float maxMoveSpeed = 30f;
     public float acceleration = 0.2f;
     public float jumpForce = 12f;
-    private Rigidbody2D rb;
+    public float currentMoveSpeed;
+
     private bool isJumping = false;
     private bool isGrounded = true;
-    public Animator aim;
-    public float currentMoveSpeed;
     private bool canJump = true;
-    public GameObject Blood;
 
+    public int coins = 0;
+
+    public Animator aim;
+    private Rigidbody2D rb;
+    public GameObject Blood;
     private Collider2D coll;
 
+    [SerializeField] public TextMeshProUGUI coinsText;
     [SerializeField] private LayerMask groundLayers;
     private void Awake()
     {
@@ -112,5 +118,25 @@ public class PlayerMovement : MonoBehaviour
     {
         // H?i ph?c t?c ?? ban ??u
         currentMoveSpeed = initialMoveSpeed;
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        coins = data.score;
+
+        coinsText.text = "Coins: " + coins;
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
     }
 }
