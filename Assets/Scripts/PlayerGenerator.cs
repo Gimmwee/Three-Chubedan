@@ -14,6 +14,4 @@ public class PlayerGenerator : MonoBehaviour
         GameObject player =  Instantiate(players[currentPlayer], gameObject.transform);
         player.SetActive(true);
     }
-
-    
 }
