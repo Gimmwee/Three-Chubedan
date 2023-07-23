@@ -756,8 +756,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1da0210fc126fb428875fad315f3cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDownFactor: 0.5
-  slowDownDuration: 3
+  initialMoveSpeed: 4
+  maxMoveSpeed: 30
+  acceleration: 0.2
+  currentMoveSpeed: 0
 --- !u!1 &155072761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,6 +1745,10 @@ PrefabInstance:
       propertyPath: aim
       value: 
       objectReference: {fileID: 398809604}
+    - target: {fileID: 1188321838039318077, guid: 9278bf45d0ea7fc40a858d342a54501a, type: 3}
+      propertyPath: Blood
+      value: 
+      objectReference: {fileID: 1669954688736633636, guid: 3b4bc4b6e7d5ee9468e31cfab138c379, type: 3}
     - target: {fileID: 1188321838039318077, guid: 9278bf45d0ea7fc40a858d342a54501a, type: 3}
       propertyPath: gameOver
       value: 
@@ -7648,6 +7654,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6972507755215284086, guid: 04742648318d7af46935cec160e09eb0, type: 3}
+      propertyPath: Blood
+      value: 
+      objectReference: {fileID: 1669954688736633636, guid: 3b4bc4b6e7d5ee9468e31cfab138c379, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8027,6 +8037,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3737859845120546203, guid: 043262bafea5169469b3ea1ec62d94c5, type: 3}
+      propertyPath: Blood
+      value: 
+      objectReference: {fileID: 1669954688736633636, guid: 3b4bc4b6e7d5ee9468e31cfab138c379, type: 3}
     - target: {fileID: 3737859845120546203, guid: 043262bafea5169469b3ea1ec62d94c5, type: 3}
       propertyPath: gameOver
       value: 
@@ -10433,6 +10447,7 @@ MonoBehaviour:
   jumpForce: 12
   aim: {fileID: 1176669505}
   currentMoveSpeed: 0
+  Blood: {fileID: 1669954688736633636, guid: 3b4bc4b6e7d5ee9468e31cfab138c379, type: 3}
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -49195,7 +49210,7 @@ GameObject:
   - component: {fileID: 1448537171}
   m_Layer: 0
   m_Name: Trap
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

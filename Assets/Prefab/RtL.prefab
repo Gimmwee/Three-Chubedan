@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 9161127413781621552}
   m_Layer: 0
   m_Name: SpikeHRtl
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,12 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c69f08860cd9844fb29c823d6eb59af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decorPrefab: {fileID: 920297989154671157}
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
-  TimeBetweenSpawn: 0
   poolTag: trapRtL
   speed: 5
 --- !u!1 &5328727318700162965
@@ -194,7 +188,7 @@ GameObject:
   - component: {fileID: 4045577012490330387}
   m_Layer: 0
   m_Name: RtL
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
