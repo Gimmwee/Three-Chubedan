@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    SavePlayerPos playerPosData;
     private int coins = 0;
     private Vector3 initialPlayerPosition;
 
@@ -15,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         initialPlayerPosition = transform.position;
+        playerPosData = FindObjectOfType<SavePlayerPos>();
     }
 
     public void Pause()
@@ -37,11 +39,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        SceneManager.LoadScene("Start Screen");
     }
 
     public void ReGame()

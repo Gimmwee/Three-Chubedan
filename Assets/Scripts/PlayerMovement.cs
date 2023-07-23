@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Blood;
 
     private Collider2D coll;
-
+    SavePlayerPos playerPosData;
     [SerializeField] private LayerMask groundLayers;
     private void Awake()
     {
@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(this);
         }
+        playerPosData = GetComponent<SavePlayerPos>();
+        playerPosData.PlayerPosLoad();
     }
     private void Start()
     {
